@@ -1,0 +1,83 @@
+.address-form {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    width:40%;
+    margin: 3rem auto;
+    input {
+        text-align: center;
+    }
+
+    button {
+        margin-top: 1rem;
+        border-color: white;
+        width:100%;
+        input {
+            background-color: transparent;
+            border: none;
+            color: white ;
+        }
+    }
+    button:active, button:hover {
+        background-color:hsl(280, 77%, 41%);
+        border-color: hsl(280, 77%, 41%);
+
+    }
+}
+
+
+#myTabContent {
+    // border-left: 1px solid #dee2e6;
+    // border-right: 1px solid #dee2e6;
+
+}
+
+.Rep {
+    .under {
+        text-decoration: underline;
+        font-weight: bold;
+    }
+    .second {
+        font-size: 0.7rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #myTabContent {
+        padding: 0 15px;
+    }
+    .address-form {
+        width:80%
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #myTabContent {
+        padding: 0 15px;
+    }
+    .address-form {
+        width:90%;
+    }
+}
+
+td {
+    padding: 0 0.5rem; 
+}
+
+.website-button {
+    color: white;
+}
+.twitter-button {
+    background-color: #1DA1F2;
+    color: white;
+}
+
+.facebook-button {
+    background-color: #4267B2;
+    color:white;
+}
+
+.youtube-button {
+    background-color: #FF0000;
+    color:white
+}

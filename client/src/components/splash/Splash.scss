@@ -1,0 +1,30 @@
+.SplashImage{
+
+    h1 {
+        font-size: 3rem;
+
+    }
+    h2 {
+        font-size: 2rem;
+    }
+
+    min-height: 30vh;
+    min-width: 100%;
+    background:  url('/assets/congress.jpg') hsla(280, 77%, 41%, 0.8);
+    background-position: center;
+    background-blend-mode: multiply;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+
+    .SplashImage {
+        min-height: 75vh;
+        min-width: 100%;
+    }
+
+    
+
+    
+}

@@ -1,0 +1,28 @@
+{
+  "name": "whorepsyou",
+  "version": "1.0.0",
+  "description": "find out who your government reps are",
+  "main": "index.js",
+  "scripts": {
+    "test": "testtest",
+    "start": "node server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikeMacNevin/WhoReps.git"
+  },
+  "keywords": [
+    "government",
+    "officials",
+    "representatives"
+  ],
+  "author": "Mike MacNevin II",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikeMacNevin/WhoReps/issues"
+  },
+  "homepage": "https://github.com/mikeMacNevin/WhoReps#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
