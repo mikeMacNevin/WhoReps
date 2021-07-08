@@ -14,12 +14,11 @@ app.use(express.static(path.join(__dirname, "..", "client/public")));
 
 // USE ROUTES
 app.use((req, res, next) => {
+  console.log("/ dis one")
   res.sendFile(path.join(__dirname, "..", "client/build", "index.html"));
 });
 
-app.use('/address', address, (req, res, next) => {
-  res.sendFile(path.join(__dirname, "..", "client/build", "index.html"))
-});
+app.use('/address', address)
 
 app.use('/mike', address, (req, res, next) => {
   res.sendFile(path.join(__dirname, "..", "client/build", "index.html"))

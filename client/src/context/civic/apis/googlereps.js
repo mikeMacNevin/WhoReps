@@ -1,6 +1,6 @@
 import proPublica  from "./propublica";
 
-export default function repTest(resData) {
+export default function googleReps(resData) {
 
     let returnReps = checkReps(resData)
 
@@ -17,11 +17,6 @@ export default function repTest(resData) {
     // return proPublica(returnReps).resolve()
     
 }
-
-
-
-
-
 ///////////////filter through the data before passing to proPublica()
 const checkReps = (data) => {
     let repArr = []
