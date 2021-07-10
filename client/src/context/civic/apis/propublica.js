@@ -14,7 +14,7 @@ export default async function proPublica(googleCivicData) {
     let resProPublica = await axios.all([getSenate, getHouse])
         .then(axios.spread((...responses) => {
             console.log("response1 butt:"  + JSON.stringify(responses[0]))
-            console.log("response1 asshole:"  + JSON.stringify(responses[1]))
+            console.log("response2 asshole:"  + JSON.stringify(responses[1]))
 
             let proPubReps = responses[0].data.results[0].members.concat(responses[1].data.results[0].members)
             console.log("resProPublica googleConcat: " + JSON.stringify(proPubReps))
@@ -31,7 +31,6 @@ export default async function proPublica(googleCivicData) {
 } 
     
 var filterPro = function(proPubReps, googleData) {
-    console.log("proPublica.js proPubReps: " + JSON.stringify(proPubReps))
     console.log("proPublica.js googleReps: " + JSON.stringify(googleData))
     console.log("blah")
 
@@ -43,7 +42,7 @@ var filterPro = function(proPubReps, googleData) {
     
     // googleData.normalizedInput.state
 
-    // state matching condition for filter
+    // state matching condition for filter  
     function filter_by_state(member) {
         return member.state == googleState
     }
@@ -60,15 +59,30 @@ var filterPro = function(proPubReps, googleData) {
     
             googleReps.forEach( (f, j) => {
                 let name = f.name
-                let senator = e.title.split(',')[0].toLowerCase()
+                let repTitle = e.title.split(',')[0].toLowerCase()
     
-    
-                if (  (senator == "senator") && (name.includes(firstName)) && (name.includes(lastName)) ) {
+                // collects all senators | reps with first name matching
+                if  ( (repTitle == "senator" || "representative") && (name.includes(firstName)) && (name.includes(lastName)) ) {
+                    if (repTitle == "representative")
                     googleReps[j].missed_votes = filteredState[i].missed_votes
+                    googleReps[j].Next_election = filteredState[i].Next_election
+                    googleReps[j].total_votes = filteredState[i].total_votes
+                    googleReps[j].total_present = filteredState[i].total_present
+                    googleReps[j].Votes_with_party_pct = filteredState[i].Votes_with_party_pct
+                    googleReps[j].votes_against_party_pct = filteredState[i].votes_against_party_pct
+                    googleReps[j].State_rank = filteredState[i].State_rank
+                    //renamed office
+                    googleReps[j].officeAddress = filteredState[i].office
+                 
+
+
                    console.log("propublica.js: senator")
+                   console.log("jmoney " + JSON.stringify(filteredState[i]))
                 }
+                console.log("proPublica.js proPubReps: hey " + JSON.stringify(proPubReps))
 
             })
+
         })
 
         console.log("proPublica.js: googleReps before return: " + JSON.stringify(googleReps))

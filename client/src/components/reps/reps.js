@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import GoogleCivicContext from '../../context/civic/googleCivicContext';
 
 import Rep from './Rep'
-import AddressForm from './AddressForm';
 import RepNav from './RepNav';
 
 const Reps = (props) => {
@@ -16,7 +15,6 @@ const Reps = (props) => {
       if (reps.length < 3) {
         return (
           <div>
-                <AddressForm />
           </div>
         )
       } else {
