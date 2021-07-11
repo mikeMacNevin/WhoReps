@@ -13,7 +13,7 @@ const Splash = () => {
 const googleCivicContext = useContext(GoogleCivicContext)
 const { reps, searchAddress } = googleCivicContext;
 
-
+    
     if  (reps.length < 3) {
         return (
             <div className="Splash">

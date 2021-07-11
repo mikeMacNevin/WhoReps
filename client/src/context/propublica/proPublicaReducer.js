@@ -1,14 +1,14 @@
 import {
-    SEARCH_ADDRESS,
+    PRO_PUBLICA,
 } from '../types'
 
 export default (state, action) => {
     switch (action.type) {
-        case SEARCH_ADDRESS:
-            console.log("googleCivicReducer: SEARCH_ADDRESS triggered ---")
+        case PRO_PUBLICA:
+            console.log("proPublica: PRO_PUBLUICA triggered ---")
             return {
                 ...state,
-                reps: action.payload
+                repPro: action.payload
             }
 
         default:

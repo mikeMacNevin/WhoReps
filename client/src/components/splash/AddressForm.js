@@ -17,6 +17,7 @@ const AddressForm = () => {
             console.log('no text entered')
         } else {
             googleCivicContext.searchAddress(text)
+
             setText('')
             console.log("AddressForm: Address Input Submitted")
 
@@ -34,8 +35,7 @@ const AddressForm = () => {
                         <h1>Who</h1>
                         <h1>Governs</h1>
                         <h1>You?</h1>
-                    </div>
-        
+                    </div>   
                     <form onSubmit={onSubmit} className="form form-inline">
                         <div class="form-group">
                             <input 

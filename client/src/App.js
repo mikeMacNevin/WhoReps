@@ -10,6 +10,7 @@ import Route from 'react-router-dom/Route';
 import React, { useEffect } from 'react';
 
 import './index.scss';
+import ProPublicaState from './context/propublica/ProPublicaState';
 
 
 function App() {
@@ -33,15 +34,17 @@ function App() {
 
   return (
     <GoogleCivicState>
-      <Router>
-        <div className="App">
-          <header className="App-header">
-            <Splash />
-            <Route path="/" exact component={Reps}/>
-            <Route path="/rep/:repname" component={RepPage}/>
-          </header>
-        </div>
-      </Router>
+      <ProPublicaState>
+        <Router>
+          <div className="App">
+            <header className="App-header">
+              <Splash />
+              <Route path="/" exact component={Reps}/>
+              <Route path="/rep/:repname" component={RepPage}/>
+            </header>
+          </div>
+        </Router>
+      </ProPublicaState>
     </GoogleCivicState>
   );
 }

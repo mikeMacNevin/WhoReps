@@ -1,9 +1,29 @@
-import React from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom';
+import ProPublicaContext from '../../context/propublica/proPublicaContext';
+import Reps from './reps';
 
 const Rep = ( {rep } ) => {
 
+    const proPublicaContext = useContext(ProPublicaContext)
+    const { repPro, getProPublicaData } = proPublicaContext;
+
+    const [text, setText] = useState('')
+    
     const {name,  party, officeName, id, missed_votes } = rep
+
+    useEffect( () => {
+        if (rep != undefined) {
+            console.log("repPro: " + repPro)
+            proPublicaContext.getProPublicaData(repPro)
+            
+            console.log("repPro filled")
+        }
+        else {
+            console.log('rep.js proPublicaContext:')
+
+        }
+    })
 
     // console.log("Rep.js: " + JSON.stringify(rep))
     return (
