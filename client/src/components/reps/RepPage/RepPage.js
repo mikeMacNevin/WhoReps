@@ -6,7 +6,8 @@ import {BrowserRouter as Router, Link} from 'react-router-dom'
 import SocialChannels from './SocialChannels'
 import Twitter from './Twitter'
 import RepImage from './RepImage'
-
+import proPublica from '../../../context/civic/apis/propublica'
+import RepProPublica from './RepProPublica'
 
 const RepPage = ({match}) => {
     const googleCivicContext = useContext(GoogleCivicContext)
@@ -49,7 +50,6 @@ const RepPage = ({match}) => {
                     console.log("reeepppp hollldderrr" + JSON.stringify(repHolder))
                 }
                 setThisRep(repHolder)
-                repname = '';
             }
         }
      }, [])
@@ -78,6 +78,8 @@ const RepPage = ({match}) => {
             <p>Office: {phone}</p>
             <SocialChannels repSocial={thisRep}></SocialChannels>
             <Twitter twitter={twitterUrl}></Twitter>
+
+            <RepProPublica repname={repname}></RepProPublica>
         </div>
     );
 }

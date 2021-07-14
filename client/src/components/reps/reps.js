@@ -11,13 +11,7 @@ const Reps = (props) => {
     const googleCivicContext = useContext(GoogleCivicContext)
     const { reps, getProPublicaData } = googleCivicContext;
 
-  useEffect(() => {
-    console.log("useEffect")
-    // googleCivicContext.getProPublicaData(reps)
-    console.log("after useEffect")
 
-  })
-    
   console.log("reps.js reps: " + JSON.stringify(reps))
       if (reps.length < 3) {
         return (

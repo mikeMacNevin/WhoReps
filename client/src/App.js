@@ -7,7 +7,7 @@ import GoogleCivicState from './context/civic/GoogleCivicState'
 import {BrowserRouter as Router} from 'react-router-dom';
 import Route from 'react-router-dom/Route';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 
 import './index.scss';
 import ProPublicaState from './context/propublica/ProPublicaState';
@@ -17,24 +17,14 @@ function App() {
 
   const [appData, setAppData] = React.useState()
 
+
   useEffect( () => {
-    fetch('/mike', {
-      headers: {
-        "Content-Type" : "application/json",
-        "Accept" : "application/json"
-      }
-    })
-      .then((res) => {
-      
-        console.log("App.js fetch: hello")
-        res.json()
-      })
-      .then((data) => setAppData)
+    console.log("APPDOTJS")
   })
 
   return (
     <GoogleCivicState>
-      <ProPublicaState>
+      {/* <ProPublicaState> */}
         <Router>
           <div className="App">
             <header className="App-header">
@@ -44,7 +34,7 @@ function App() {
             </header>
           </div>
         </Router>
-      </ProPublicaState>
+      {/* </ProPublicaState> */}
     </GoogleCivicState>
   );
 }

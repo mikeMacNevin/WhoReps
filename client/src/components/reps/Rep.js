@@ -1,34 +1,20 @@
 import React, {useContext, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom';
 import ProPublicaContext from '../../context/propublica/proPublicaContext';
+import RepProPublica from './RepPage/RepProPublica';
 import Reps from './reps';
 
-const Rep = ( {rep } ) => {
+const Rep = ( {rep} ) => {
 
-    const proPublicaContext = useContext(ProPublicaContext)
-    const { repPro, getProPublicaData } = proPublicaContext;
 
     const [text, setText] = useState('')
     
-    const {name,  party, officeName, id, missed_votes } = rep
-
-    useEffect( () => {
-        if (rep != undefined) {
-            console.log("repPro: " + repPro)
-            proPublicaContext.getProPublicaData(repPro)
-            
-            console.log("repPro filled")
-        }
-        else {
-            console.log('rep.js proPublicaContext:')
-
-        }
-    })
+    const {name,  party, officeName, id, url, missed_votes } = rep
 
     // console.log("Rep.js: " + JSON.stringify(rep))
     return (
         //Representative Basic info & Link to RepPage.js 
-        <div className="Rep mx-auto mt-4">
+        <div className="Rep mx-auto mt-4" id={id}>
             <p className="mb-0 under">{officeName}</p>
             <div className="d-flex justify-content-between align-items-center">
                 <div>
@@ -45,7 +31,7 @@ const Rep = ( {rep } ) => {
             </div>
             {/* <img src ={photoUrl}></img> */}
 
-            
+            <RepProPublica></RepProPublica>
         </div>
 
     )

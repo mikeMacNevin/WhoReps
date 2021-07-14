@@ -21,7 +21,7 @@ export default function googleReps(resData) {
 const checkReps = (data) => {
     let repArr = []
     var obj ={}
-    let i
+    let i;
     if (data.offices && data.officials) {
         // offices
         obj.normalizedInput = {}
