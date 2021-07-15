@@ -31,13 +31,13 @@ const AddressForm = () => {
         return (
             <div className="address-form">
                 <div className="address-inner-container">
-                    <div class="text-left w-100"> 
+                    <div className="text-left w-100"> 
                         <h1>Who</h1>
                         <h1>Governs</h1>
                         <h1>You?</h1>
                     </div>   
                     <form onSubmit={onSubmit} className="form form-inline">
-                        <div class="form-group">
+                        <div className="form-group">
                             <input 
                                 type="text" 
                                 className="form-control" 
@@ -47,7 +47,7 @@ const AddressForm = () => {
                                 onChange={onChange} 
                             />
                         </div>
-                        <div class="form-group">
+                        <div className="form-group">
                             <button className="btn btn-primary">   
                                 <input
                                     type='submit'
@@ -55,7 +55,7 @@ const AddressForm = () => {
                                 />
                             </button>
                         </div>
-                        <div class="form-group-small d-none">
+                        <div className="form-group-small d-none">
                             <button className="btn btn-primary mt-0">   
                                 <input
                                     type='submit'

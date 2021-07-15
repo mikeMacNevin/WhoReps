@@ -20,11 +20,8 @@ export default async function proPublica(googleCivicData) {
             console.log("resProPublica googleConcat: " + JSON.stringify(proPubReps))
 
             returnValue = filterPro(proPubReps, googleCivicData)
-
         // console.log("and thennnn: " + JSON.stringify(filterPro(resp, resData))) 
     }))
-
-
     console.log("proPublica right before return: " + JSON.stringify(returnValue))
     return returnValue
 

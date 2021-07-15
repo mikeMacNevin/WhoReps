@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export default async function proPublica(googleCivicData) {
+export default async function proPublica(googleCivicData, repname) {
     let finalResult;
     // PRO PUBLICA
     let returnValue = []
@@ -16,7 +16,6 @@ export default async function proPublica(googleCivicData) {
 
     let resProPublica = await axios.all([getSenate, getHouse])
         .then(axios.spread((...responses) => {
-            debugger;
             console.log("response1 butt:"  + JSON.stringify(responses[0]))
             console.log("response2 asshole:"  + JSON.stringify(responses[1]))
 
@@ -36,15 +35,13 @@ var filterPro = function(proPubReps, googleData) {
 
     var googleName;
 
-    var googleReps;
+    var googleRep;
 
-    function nameSomeVars() {
-        googleName = googleData.thisRep.name;
-        googleReps = googleData.thisRep
-        googleState = googleData.thisRep.stateId
-    }
+    googleRep = googleData
+    googleName = googleData.name;
+    googleState = googleData.stateId
+    
 
-    nameSomeVars()
 
     //Gets stateId by taking first rep from googleData and taking it's state Id
     var googleState = '' 
@@ -74,15 +71,15 @@ var filterPro = function(proPubReps, googleData) {
             console.log("firstName: " + firstName)
             console.log("jellystuff: " + JSON.stringify(e))
      
-            googleReps.date_of_birth = e.date_of_birth
-            googleReps.missed_votes = e.missed_votes
-            return googleReps
+            googleRep.date_of_birth = e.date_of_birth
+            googleRep.missed_votes = e.missed_votes
+            return googleRep
         }
 
     })
 
-    console.log("proPublica.js: googleReps before return: " + JSON.stringify(googleReps))
-    return googleReps
+    console.log("proPublica.js: googleReps before return: " + JSON.stringify(googleRep))
+    return googleRep
 }  
 
         //    let name = f.name

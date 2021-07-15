@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {cloneElement, useContext, useEffect, useState} from 'react'
 import { Link } from 'react-router-dom';
 import ProPublicaContext from '../../../context/propublica/proPublicaContext';
 import Reps from './../reps';
@@ -11,25 +11,49 @@ const RepProPublica = ( repname  ) => {
 
     const googleCivicContext = useContext(GoogleCivicContext)
     const { reps, searchAddress } = googleCivicContext;
+
     
-    console.log("wutang")
+
+    var currentRep
+    var finalRep
     useEffect( () => {
-        if ( (repname != undefined) && (reps.length > 3)) {
-            let lowerName = repname;
+        console.log("RPP useEffect()")
+        console.log('RPP typeof repname.repname: ' + typeof repname.repname)
+        console.log('RPP repname: ' + JSON.stringify(repname.repname))
+
+        if (reps.length > 3) {
             reps.forEach(e => {
-                if (lowerName == e.name) {
-                    proResult = proPublica(e, repname)
-
-                }
-            });
-
+                if (repname.repname == e.name) {
+                    currentRep = {...e}
+                    console.log("dacurrentRep: " + JSON.stringify(currentRep))
+               }
+            })
         }
+        console.log("lastcurrentRep: " + JSON.stringify(currentRep))
+        finalRep = getProAsync(currentRep, repname)
+    }, [])   
 
-    })
+
+    var getProAsync = async (data ) => { 
+        let apple = await proPublica(data, repname)
+        console.log("type: " + typeof data)
+        console.log("type: " + typeof repname)
+
+        console.log("applestick: " + JSON.stringify(apple))
+     }
+        // const getProPublica = async () => {
+            
+        // }
+       
+
+ 
+
+        
+
 
     if (proResult != undefined) {
         return (
-            <div>{proResult}</div>
+            <div>{currentRep}</div>
         )
     }
     else {
